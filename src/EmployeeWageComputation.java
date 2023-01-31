@@ -8,19 +8,23 @@ public class EmployeeWageComputation {
         int checkAttendence =(int)(Math.random()*100)%3;
         int workingHours=0;
 
-        if(checkAttendence==Full_Time){
-            System.out.println("Employee is present");
-            workingHours=8;
+        switch(checkAttendence){
+            case 1:
+                System.out.println("Employee is present Full_Time");
+                workingHours=8;
+                break;
 
-        }else if(checkAttendence==Part_Time){
+            case 2:
+                System.out.println("Employee is present Part_Time");
+                workingHours=4;
+                break;
 
-            System.out.println("Employee is present");
-            workingHours=4;
-        }else{
-            System.out.println("Employee is absent");
+            default:
+                System.out.println("Employee is absent");
         }
         int wage = workingHours*Wage_Per_Hr;
         System.out.println("Employee Daily Wage is" + wage);
 
     }
+
 }
