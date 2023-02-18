@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class EmployeeWageComputation {
    private static final  int Absent_Day_Hr = 0;
-    private  static final int Wage_Per_Hr =20;
+   // private  static final int Wage_Per_Hr =20;
     private static final int Full_Day_Hr=8;
     private static final int Half_Day_Hr=4;
 
@@ -13,9 +13,10 @@ public class EmployeeWageComputation {
     private static final int Total_Working_Day_Per_Month=20;
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage computation program on Master branch");
-        calculateEmpWage();
+        calculateEmpWage("DMart",30,5,20);
+        calculateEmpWage("TATA",40,4,20);
     }
-    public static void calculateEmpWage() {
+    public static int calculateEmpWage(String company, int wagePerHour, int numOfWorkingDays, int maxWorkingHours) {
 
         Random random = new Random();
         int attendance;
@@ -34,21 +35,21 @@ public class EmployeeWageComputation {
                     total_emp_hours += Half_Day_Hr;
                     total_working_days++;
                     break;
-                case Is_Absent_Today:
-                    total_emp_wage += Absent_Day_Hr;
-                    total_working_days++;
-                    break;
 
                 default:
                     total_emp_hours = Absent_Day_Hr;
+                    total_working_days=0;
+
 
             }
         }
 
-        total_emp_wage += Wage_Per_Hr * total_emp_hours;
+        total_emp_wage += wagePerHour * total_emp_hours;
         System.out.println("Total working days" + total_working_days);
         System.out.println("total working hours" + total_emp_hours);
         System.out.println("Total wage for a month" + total_emp_wage);
+
+        return total_emp_wage;
 
 
     }
